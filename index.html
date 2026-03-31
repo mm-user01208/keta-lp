@@ -59,21 +59,55 @@ gtag('config', 'G-RS604S73EM');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* v4 Design Override - minimal modernization */
+/* v4.3 Design Override */
 body { font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif !important; -webkit-font-smoothing: antialiased; }
 .top-overview .inner p, .content_text, .faq-text.answer div, .top-block p, .list-payment li { line-height: 1.9; letter-spacing: 0.02em; }
 h2 { letter-spacing: 0.04em; }
+
+/* ① 申請手順 STEP強調 */
 .top-apply-flow-list-item { border-radius: 10px; }
-.top-apply-flow-list-item h3 .top-apply-flow-list-item-header { border-radius: 10px 10px 0 0; }
-.faq-item { border-radius: 8px; overflow: hidden; transition: box-shadow 0.2s; }
-.faq-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.top-apply-flow-list-item h3 .top-apply-flow-list-item-header { 
+  border-radius: 10px 10px 0 0; 
+  font-size: 13px; 
+  font-weight: 700; 
+  letter-spacing: 0.08em;
+}
+.top-apply-flow-list-item h3 .top-apply-flow-list-item-title {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.top-apply-flow-list-item p { font-size: 13px; line-height: 1.7; }
+.top-apply-flow figure i { opacity: 0.5; }
+
+/* ② CTAボタン微調整 */
+.btn-apply { 
+  border-radius: 8px; 
+  transition: transform 0.15s, box-shadow 0.15s; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.btn-apply:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+/* ③ FAQアコーディオン整え */
+.faq-item { 
+  border-radius: 8px; 
+  overflow: hidden; 
+  transition: box-shadow 0.2s;
+  margin-bottom: 4px;
+}
+.faq-item:hover { box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.faq-text.question { 
+  padding: 16px 20px; 
+  font-weight: 500;
+  line-height: 1.7;
+}
+.faq-text.answer { padding: 0 20px 16px; }
+.faq-text.answer div { line-height: 1.85; }
+
+/* その他微調整 */
 .article-list-item { border-radius: 10px; overflow: hidden; transition: box-shadow 0.2s; }
 .article-list-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
 .top-region-list-wrap > div { border-radius: 8px; }
-.btn-apply { border-radius: 8px; transition: transform 0.15s, box-shadow 0.15s; }
-.btn-apply:hover { transform: translateY(-1px); }
 .top-contents .inner section { margin-bottom: 48px; }
-.glo-faq-about .faq-list { gap: 6px; }
 footer .common-nav section { border-radius: 0; }
 footer .common-nav section p { padding: 14px 16px; }
 </style>
@@ -433,7 +467,7 @@ class="lazyload kv-bg-img">
 <section id="floating-on" class="top-overview">
 <div class="inner">
 <h2>
-2021年9月より韓国への入国に<br class="sp-only">電子渡航認証(K-ETA)のオンライン申請が必要となりました。
+韓国への入国に<br class="sp-only">電子渡航認証K-ETAの申請が必要です
 </h2>
 <p>
 K-ETA(Korea Electronic Travel Authorization)はビザ(査証)を取得せずに、短期観光・商用を目的として韓国へ入国する渡航者を対象とした電子渡航認証です。オンラインでの申請手続きにより、韓国入国に必要な電子認証を取得できます。2021年9月1日から正式に運用が開始され、日本国籍の渡航者は<a href="https://keta-travel.com/news/000100/">2022年11月1日よりK-ETAの取得が必須</a>となりました。<a href="https://www.k-eta.go.kr/portal/apply/index.do" target="_blank" rel="noopener noreferrer">韓国法務部</a>や航空会社では、出発の72時間前までに申請することを推奨しています。また、18歳～64歳の方が申請対象となるため、家族やグループで渡航される際は対象者全員分の手続きを行ってください。<br>
@@ -507,17 +541,17 @@ K-ETAの申請手順
 <section class="top-contents">
 <div class="inner">
 <section class="mb-40">
-<h2>K-ETA(ケーイータ)申請とは</h2>
+<h2>K-ETA申請とは</h2>
 <div class="top_1_text">
 <picture class="float-left">
 <source  width="272" height="272" data-srcset="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.webp">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjAAAAIwAQAAAACwimzCAAAAAnRSTlMAAHaTzTgAAAA9SURBVHja7cGBAAAAAMOg+VOf4AZVAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAN5tQAAHtUWQKAAAAAElFTkSuQmCC" width="272" height="272" alt="K-ETAとは" data-src="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.jpg" decoding="async" class="lazyload" data-eio-rwidth="560" data-eio-rheight="560">
 </picture><noscript><img src="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.jpg" width="272" height="272" alt="K-ETAとは" data-eio="l"></noscript>
 <div class="content_text content-1">
-<a href="/service/index.html">K-ETAとは</a>、短期の韓国渡航に必須となる電子渡航認証です。これまで短期訪問ビザの取得免除国・地域の市民はパスポートのみで韓国への入国が可能でしたが、2021年9月よりK-ETAの事前申請が必須となりました。正式名称は“Korea Electronic Travel Authorization”で、“ケーイーティーエー”や“ケーイータ”と呼ばれます。電子入国カード(e-Arrival Card)とは異なり、K-ETAは韓国入国前にオンラインで申請する電子渡航認証です。<br>
+<a href="/service/index.html">K-ETAとは</a>、短期の韓国渡航に必須となる電子渡航認証です。これまで短期訪問ビザの取得免除国・地域の市民はパスポートのみで韓国への入国が可能でしたが、2021年9月よりK-ETAの事前申請が必須となりました。正式名称は“Korea Electronic Travel Authorization”で、“ケーイーティーエー”や“ケーイータ”と呼ばれます。K-ETAは電子入国カード(e-Arrival Card)とは異なる、オンライン申請の電子渡航認証です。<br>
 ビザを取得せず韓国へ渡航する<a href="/vwa/index.html">対象国</a>の市民は年齢を問わずK-ETAが必要となり、渡航前に申請を済ませていない方は航空便や船舶へ搭乗できません。K-ETAは渡航目的や滞在期間などの要件を満たすことでビザの取得が免除され、原則として最長90日間の滞在が認められます。ビザと比べ短期間での取得が可能ですが、韓国法務部は出発3日前までの申請を推奨しています。<br>
-当サイトが提供するK-ETA申請の代行サービスは日本語による簡潔な申請書で迅速な「渡航認証許可」の取得が可能です。なお、K-ETAは韓国法務部のウェブサイトにてご自身で申請することも可能ですが、日本語での問い合わせには対応しておりません。
-<br><span style="font-size:12px;color:#888;">※渡航条件や時期により、K-ETAの申請が不要な場合があります。</span>
+当サイトが提供するK-ETA申請の代行サービスは日本語による簡潔な申請書で迅速な「渡航認証許可」の取得が可能です。なお、K-ETAは韓国法務部のウェブサイトにてご自身で申請することも可能ですが、日本語での問い合わせには対応しておりません。なお、渡航条件や時期により、K-ETAの申請が不要な場合があります。
+
 </div>
 </div>
 </section>
