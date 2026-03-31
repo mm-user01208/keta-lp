@@ -3,114 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEP UI - 3パターン比較</title>
+<title>STEP UI - ②おすすめ 修正版</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans JP',sans-serif;background:#eee;color:#333;padding:24px}
-h1{text-align:center;font-size:1.3rem;margin:16px 0 32px;color:#333}
-.pattern-wrap{background:#fff;border-radius:16px;padding:64px 32px 48px;margin-bottom:48px;box-shadow:0 2px 12px rgba(0,0,0,.05);position:relative}
-.tag{position:absolute;top:16px;left:16px;background:#dc003b;color:#fff;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:20px}
-.pattern-wrap h2{text-align:center;font-size:1.3rem;font-weight:700;color:#333;margin-bottom:40px;letter-spacing:.04em}
+body{font-family:'Noto Sans JP',sans-serif;background:#eee;color:#333}
 
-/* === Shared === */
+.section-steps{padding:80px 24px;max-width:960px;margin:0 auto;background:#fff7ec;border-radius:16px}
+.section-steps h2{text-align:center;font-size:1.3rem;font-weight:700;color:#333;margin-bottom:48px;letter-spacing:.04em}
+
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;position:relative;padding-top:28px}
+.steps-grid::before{content:'';position:absolute;top:28px;left:calc(12.5%);right:calc(12.5%);height:2px;background:#dc003b;z-index:5}
+
+.step-col{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  background:#fff;border-radius:8px;padding:40px 16px 20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  position:relative;z-index:1;
+  transition:box-shadow .2s,transform .2s;transform-origin:center center;
+}
+.step-col:hover{box-shadow:0 6px 20px rgba(0,0,0,.12);transform:scale(1.03)}
+
 .step-num{
   width:56px;height:56px;border-radius:50%;background:#dc003b;color:#fff;
   display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;font-weight:900;
-  box-shadow:0 3px 10px rgba(220,0,59,.2);border:3px solid #fff;
-  flex-shrink:0;transition:transform .2s,box-shadow .2s;
+  font-size:1.2rem;font-weight:900;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);border:3px solid #fff;
+  position:absolute;top:-28px;left:50%;transform:translateX(-50%);z-index:10;
 }
-.step-title{font-size:17px;font-weight:700;color:#333;line-height:1.4}
-.step-desc{font-size:13px;color:#666;line-height:1.4}
 
-/* ========== PATTERN 1: 強化版 ========== */
-.p1-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;position:relative}
-.p1-grid::before{content:'';position:absolute;top:28px;left:calc(12.5% + 4px);right:calc(12.5% + 4px);height:2px;background:#dc003b;z-index:0}
-.p1-col{display:flex;flex-direction:column;align-items:center;text-align:center;z-index:1;cursor:default}
-.p1-col .step-num{margin-bottom:6px}
-.p1-col:hover .step-num{transform:scale(1.1);box-shadow:0 4px 14px rgba(220,0,59,.35)}
-.p1-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:4px 0 10px;transition:transform .2s}
-.p1-col:hover .p1-icon{transform:scale(1.08)}
-.p1-icon svg{width:56px;height:56px;fill:none;stroke:#222;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.p1-col .step-title{margin-bottom:6px}
+.step-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:0 0 10px}
+.step-icon svg{width:52px;height:52px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
-/* ========== PATTERN 2: 薄い囲み ========== */
-.p2-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;position:relative}
-.p2-grid::before{content:'';position:absolute;top:28px;left:calc(12.5% + 4px);right:calc(12.5% + 4px);height:2px;background:#dc003b;z-index:0}
-.p2-col{display:flex;flex-direction:column;align-items:center;text-align:center;z-index:1;cursor:default;
-  background:#f7f7f7;border-radius:8px;padding:0 16px 20px;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:box-shadow .2s}
-.p2-col:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
-.p2-col .step-num{margin-top:-28px;margin-bottom:8px}
-.p2-col:hover .step-num{transform:scale(1.1);box-shadow:0 4px 14px rgba(220,0,59,.35)}
-.p2-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:4px 0 10px;transition:transform .2s}
-.p2-col:hover .p2-icon{transform:scale(1.08)}
-.p2-icon svg{width:52px;height:52px;fill:none;stroke:#333;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.p2-col .step-title{margin-bottom:6px}
+.step-title{font-size:17px;font-weight:700;color:#333;margin-bottom:8px;line-height:1.4}
+.step-desc{font-size:13px;color:#666;line-height:1.6}
 
-/* ========== PATTERN 3: 矢印接続 ========== */
-.p3-grid{display:grid;grid-template-columns:repeat(7,auto);gap:0;align-items:start;justify-content:center}
-.p3-col{display:flex;flex-direction:column;align-items:center;text-align:center;width:180px;cursor:default}
-.p3-col .step-num{margin-bottom:6px}
-.p3-col:hover .step-num{transform:scale(1.1);box-shadow:0 4px 14px rgba(220,0,59,.35)}
-.p3-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:4px 0 10px;transition:transform .2s}
-.p3-col:hover .p3-icon{transform:scale(1.08)}
-.p3-icon svg{width:52px;height:52px;fill:none;stroke:#333;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.p3-col .step-title{margin-bottom:6px}
-.p3-arrow{display:flex;align-items:center;justify-content:center;padding-top:12px;color:#dc003b;font-size:2rem;font-weight:900;width:40px}
-
-/* SP */
 @media(max-width:768px){
-  body{padding:12px}
-  .pattern-wrap{padding:48px 16px 32px}
-  .p1-grid,.p2-grid{grid-template-columns:repeat(2,1fr)}
-  .p1-grid::before,.p2-grid::before{display:none}
-  .p3-grid{grid-template-columns:1fr;gap:0;justify-items:center}
-  .p3-arrow{transform:rotate(90deg);padding:0;margin:8px 0}
-  .p3-col{width:100%;max-width:240px}
+  .section-steps{padding:48px 16px;border-radius:0}
+  .steps-grid{grid-template-columns:repeat(2,1fr);gap:32px 16px}
+  .steps-grid::before{display:none}
 }
 </style>
 </head>
 <body>
 
-<h1>K-ETA申請手順 — デザイン3パターン</h1>
-
-<!-- ===== Pattern 1 ===== -->
-<div class="pattern-wrap">
-<span class="tag">① 安全・無難</span>
+<div class="section-steps">
 <h2>K-ETAの申請手順</h2>
-<div class="p1-grid">
-  <div class="p1-col"><div class="step-num">1</div><div class="p1-icon"><svg viewBox="0 0 48 48"><path d="M10 4h18l12 12v26a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M28 4v12h12"/><line x1="16" y1="22" x2="32" y2="22"/><line x1="16" y1="28" x2="32" y2="28"/><line x1="16" y1="34" x2="24" y2="34"/></svg></div><div class="step-title">申請書の記入</div><div class="step-desc">規約に同意のうえ申請書に必要事項を入力</div></div>
-  <div class="p1-col"><div class="step-num">2</div><div class="p1-icon"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="28" rx="3"/><line x1="4" y1="20" x2="44" y2="20"/><rect x="8" y="30" width="14" height="3" rx="1"/><circle cx="38" cy="31.5" r="2"/></svg></div><div class="step-title">料金のお支払い</div><div class="step-desc">内容を確認しカード情報を入力して決済</div></div>
-  <div class="p1-col"><div class="step-num">3</div><div class="p1-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><polyline points="24,12 24,24 33,29"/><circle cx="24" cy="24" r="1.5" fill="#222"/></svg></div><div class="step-title">申請の審査</div><div class="step-desc">受付通知を送信後、最長72時間で審査完了</div></div>
-  <div class="p1-col"><div class="step-num">4</div><div class="p1-icon"><svg viewBox="0 0 48 48"><path d="M6 10h36a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/><polyline points="4,10 24,26 44,10"/></svg></div><div class="step-title">結果の通知</div><div class="step-desc">メールで審査結果を通知。渡航前にご確認を</div></div>
-</div>
+<div class="steps-grid">
+
+<div class="step-col">
+  <div class="step-num">1</div>
+  <div class="step-icon"><svg viewBox="0 0 48 48" stroke="#c9ad00"><rect x="6" y="10" width="36" height="28" rx="2"/><rect x="10" y="6" width="28" height="4" rx="1"/><line x1="12" y1="18" x2="36" y2="18"/><rect x="12" y="22" width="24" height="12" rx="1"/></svg></div>
+  <div class="step-title">申請書記入</div>
+  <div class="step-desc">免責事項と利用規約に同意し、K-ETAオンライン申請書に必要事項を入力してください。K-ETAは年齢を問わず取得が必要です。</div>
 </div>
 
-<!-- ===== Pattern 2 ===== -->
-<div class="pattern-wrap">
-<span class="tag">② おすすめ</span>
-<h2>K-ETAの申請手順</h2>
-<div class="p2-grid">
-  <div class="p2-col"><div class="step-num">1</div><div class="p2-icon"><svg viewBox="0 0 48 48"><path d="M10 4h18l12 12v26a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M28 4v12h12"/><line x1="16" y1="22" x2="32" y2="22"/><line x1="16" y1="28" x2="32" y2="28"/><line x1="16" y1="34" x2="24" y2="34"/></svg></div><div class="step-title">申請書の記入</div><div class="step-desc">規約に同意のうえ申請書に必要事項を入力</div></div>
-  <div class="p2-col"><div class="step-num">2</div><div class="p2-icon"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="28" rx="3"/><line x1="4" y1="20" x2="44" y2="20"/><rect x="8" y="30" width="14" height="3" rx="1"/><circle cx="38" cy="31.5" r="2"/></svg></div><div class="step-title">料金のお支払い</div><div class="step-desc">内容を確認しカード情報を入力して決済</div></div>
-  <div class="p2-col"><div class="step-num">3</div><div class="p2-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><polyline points="24,12 24,24 33,29"/><circle cx="24" cy="24" r="1.5" fill="#333"/></svg></div><div class="step-title">申請の審査</div><div class="step-desc">受付通知を送信後、最長72時間で審査完了</div></div>
-  <div class="p2-col"><div class="step-num">4</div><div class="p2-icon"><svg viewBox="0 0 48 48"><path d="M6 10h36a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/><polyline points="4,10 24,26 44,10"/></svg></div><div class="step-title">結果の通知</div><div class="step-desc">メールで審査結果を通知。渡航前にご確認を</div></div>
-</div>
+<div class="step-col">
+  <div class="step-num">2</div>
+  <div class="step-icon"><svg viewBox="0 0 48 48" stroke="#134aa9"><rect x="4" y="10" width="40" height="28" rx="3"/><line x1="4" y1="20" x2="44" y2="20"/><rect x="8" y="30" width="14" height="3" rx="1"/><circle cx="38" cy="31.5" r="2"/></svg></div>
+  <div class="step-title">お支払い</div>
+  <div class="step-desc">申請書の入力内容に間違いがないことを確認したあと、お支払いページに遷移します。クレジットカード情報を入力してください。</div>
 </div>
 
-<!-- ===== Pattern 3 ===== -->
-<div class="pattern-wrap">
-<span class="tag">③ CV最強</span>
-<h2>K-ETAの申請手順</h2>
-<div class="p3-grid">
-  <div class="p3-col"><div class="step-num">1</div><div class="p3-icon"><svg viewBox="0 0 48 48"><path d="M10 4h18l12 12v26a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M28 4v12h12"/><line x1="16" y1="22" x2="32" y2="22"/><line x1="16" y1="28" x2="32" y2="28"/><line x1="16" y1="34" x2="24" y2="34"/></svg></div><div class="step-title">申請書の記入</div><div class="step-desc">規約に同意のうえ申請書に必要事項を入力</div></div>
-  <div class="p3-arrow">→</div>
-  <div class="p3-col"><div class="step-num">2</div><div class="p3-icon"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="28" rx="3"/><line x1="4" y1="20" x2="44" y2="20"/><rect x="8" y="30" width="14" height="3" rx="1"/><circle cx="38" cy="31.5" r="2"/></svg></div><div class="step-title">料金のお支払い</div><div class="step-desc">内容を確認しカード情報を入力して決済</div></div>
-  <div class="p3-arrow">→</div>
-  <div class="p3-col"><div class="step-num">3</div><div class="p3-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><polyline points="24,12 24,24 33,29"/><circle cx="24" cy="24" r="1.5" fill="#333"/></svg></div><div class="step-title">申請の審査</div><div class="step-desc">受付通知を送信後、最長72時間で審査完了</div></div>
-  <div class="p3-arrow">→</div>
-  <div class="p3-col"><div class="step-num">4</div><div class="p3-icon"><svg viewBox="0 0 48 48"><path d="M6 10h36a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/><polyline points="4,10 24,26 44,10"/></svg></div><div class="step-title">結果の通知</div><div class="step-desc">メールで審査結果を通知。渡航前にご確認を</div></div>
+<div class="step-col">
+  <div class="step-num">3</div>
+  <div class="step-icon"><svg viewBox="0 0 48 48" stroke="#dc003b"><circle cx="24" cy="24" r="20"/><polyline points="24,12 24,24 33,29"/><circle cx="24" cy="24" r="1.5" fill="#dc003b"/></svg></div>
+  <div class="step-title">審査</div>
+  <div class="step-desc">お支払い完了後に「申請受付通知」を送信します。審査には最長72時間を要しますので、結果が通知されるまでお待ちください。</div>
+</div>
+
+<div class="step-col">
+  <div class="step-num">4</div>
+  <div class="step-icon"><svg viewBox="0 0 48 48" stroke="#ed8906"><path d="M6 10h36a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/><polyline points="4,10 24,26 44,10"/></svg></div>
+  <div class="step-title">結果通知</div>
+  <div class="step-desc">審査結果をメールで通知します。渡航前にK-ETA申請状況確認で申請内容に誤りがないかご確認ください。なお、K-ETAは韓国の電子入国申告のひとつです。</div>
+</div>
+
 </div>
 </div>
 
