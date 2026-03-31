@@ -16,11 +16,11 @@ h1{text-align:center;margin:20px 0 40px;font-size:1.4rem;color:#00508C}
 /* ===== Pattern A: iVisa風 横プログレスバー ===== */
 .steps-a{display:flex;justify-content:space-between;position:relative;max-width:800px;margin:0 auto;padding:0 20px}
 .steps-a::before{content:'';position:absolute;top:28px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:3px;background:#dde5ed;z-index:0}
-.steps-a::after{content:'';position:absolute;top:28px;left:calc(12.5% + 20px);width:75%;height:3px;background:linear-gradient(90deg,#00508C,#c41e24);z-index:1;border-radius:2px}
+.steps-a::after{content:'';position:absolute;top:28px;left:calc(12.5% + 20px);width:75%;height:3px;background:#dc003b;z-index:1;border-radius:2px}
 .step-a{text-align:center;flex:1;position:relative;z-index:2}
-.step-a .num{width:56px;height:56px;border-radius:50%;background:#00508C;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;margin-bottom:12px;box-shadow:0 3px 10px rgba(0,80,140,.25);border:3px solid #fff}
-.step-a .icon{font-size:1.6rem;margin-bottom:6px;display:block}
-.step-a h3{font-size:.9rem;font-weight:700;color:#00508C;margin-bottom:4px}
+.step-a .num{width:56px;height:56px;border-radius:50%;background:#dc003b;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;margin-bottom:12px;box-shadow:0 3px 10px rgba(220,0,59,.25);border:3px solid #fff}
+.step-a .icon{font-size:2.4rem;margin-bottom:6px;display:block}
+.step-a h3{font-size:1.2rem;font-weight:700;color:#333;margin-bottom:4px}
 .step-a p{font-size:.75rem;color:#888;line-height:1.4}
 
 /* ===== Pattern B: JAL ABC風 カード+番号バッジ ===== */
@@ -73,10 +73,10 @@ h1{text-align:center;margin:20px 0 40px;font-size:1.4rem;color:#00508C}
 <span class="pattern-label">A: プログレスバー型（iVisa参考）</span>
 <h2>K-ETAの申請手順</h2>
 <div class="steps-a">
-<div class="step-a"><div class="num">1</div><span class="icon">📝</span><h3>申請書記入</h3><p>パスポート情報を入力</p></div>
-<div class="step-a"><div class="num">2</div><span class="icon">💳</span><h3>お支払い</h3><p>クレジットカードで決済</p></div>
-<div class="step-a"><div class="num">3</div><span class="icon">🔍</span><h3>審査</h3><p>最長72時間で審査</p></div>
-<div class="step-a"><div class="num">4</div><span class="icon">✉️</span><h3>結果通知</h3><p>メールで結果をお届け</p></div>
+<div class="step-a"><div class="num">1</div><span class="icon">📝</span><h3>申請書記入</h3><p>免責事項と利用規約に同意し、K-ETAオンライン申請書に必要事項を入力してください。K-ETAは年齢を問わず取得が必要です。</p></div>
+<div class="step-a"><div class="num">2</div><span class="icon">💳</span><h3>お支払い</h3><p>申請書の入力内容に間違いがないことを確認したあと、お支払いページに遷移します。クレジットカード情報を入力してください。</p></div>
+<div class="step-a"><div class="num">3</div><span class="icon">🔍</span><h3>審査</h3><p>お支払い完了後に「申請受付通知」を送信します。審査には最長72時間を要しますので、結果が通知されるまでお待ちください。</p></div>
+<div class="step-a"><div class="num">4</div><span class="icon">✉️</span><h3>結果通知</h3><p>審査結果をメールで通知します。渡航前にK-ETA申請状況確認で申請内容に誤りがないかご確認ください。なお、K-ETAは韓国の電子入国申告のひとつです。</p></div>
 </div>
 </div>
 
