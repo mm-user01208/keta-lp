@@ -64,45 +64,41 @@ body { font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino
 .top-overview .inner p, .content_text, .faq-text.answer div, .top-block p, .list-payment li { line-height: 1.9; letter-spacing: 0.02em; }
 h2 { letter-spacing: 0.04em; }
 
-/* ① 申請手順 パターン②囲み型 */
+/* ① 申請手順 独立カード型 */
 .top-apply-flow { overflow: visible !important; }
 .top-apply-flow-list { display: grid !important; grid-template-columns: repeat(4,1fr); gap: 32px; position: relative; overflow: visible !important; }
-.top-apply-flow-list::before { content:''; position:absolute; top:28px; left:calc(12.5% + 4px); right:calc(12.5% + 4px); height:2px; background:#dc003b; z-index:0; }
-.top-apply-flow-list::after { display: none; }
+.top-apply-flow-list::before, .top-apply-flow-list::after { display: none !important; }
 .top-apply-flow-list figure { display: none !important; }
 .top-apply-flow-list-item {
   display: flex !important; flex-direction: column; align-items: center; text-align: center;
-  z-index: 1; background: #f7f7f7 !important; border-radius: 8px !important;
-  padding: 0 16px 20px !important; box-shadow: 0 2px 8px rgba(0,0,0,.05) !important;
-  border: none !important; margin: 0 !important; transition: box-shadow .2s, transform .2s; transform-origin: center center;
+  z-index: 1; background: #ffffff !important; border-radius: 8px !important;
+  padding: 16px 16px 20px !important; box-shadow: 0 4px 12px rgba(0,0,0,.08) !important;
+  border: none !important; margin: 0 !important;
+  transition: box-shadow .2s, transform .2s; transform-origin: center center;
   overflow: visible !important;
 }
-.top-apply-flow-list-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08) !important; transform: scale(1.03); }
+.top-apply-flow-list-item:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12) !important; transform: scale(1.03); }
 .top-apply-flow-list-item h3 {
   display: flex !important; flex-direction: column; align-items: center;
   background: transparent !important; padding: 0 !important; width: 100%;
 }
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-header {
-  width: 56px; height: 56px; border-radius: 50%; background: #dc003b !important; color: #fff;
+  width: 48px; height: 48px; border-radius: 50%; background: #dc003b !important; color: #fff;
   display: inline-flex !important; align-items: center; justify-content: center;
-  font-size: 1.3rem; font-weight: 900; margin-top: -28px; margin-bottom: 8px;
+  font-size: 1.2rem; font-weight: 900; margin-bottom: 12px;
   box-shadow: 0 3px 10px rgba(220,0,59,.2); border: 3px solid #fff;
-  padding: 0 !important; line-height: 56px;
-  
+  padding: 0 !important; line-height: 48px;
 }
-
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-icon {
   width: 52px !important; height: 52px !important; margin: 4px 0 10px;
   display: block !important;
 }
-
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-title {
   font-size: 17px !important; font-weight: 700; color: #333; letter-spacing: 0.03em; margin-bottom: 6px;
 }
 .top-apply-flow-list-item p { font-size: 13px; line-height: 1.4; color: #666; margin-top: 0; }
 @media(max-width:768px) {
-  .top-apply-flow-list { grid-template-columns: repeat(2,1fr) !important; gap: 32px 16px; }
-  .top-apply-flow-list::before { display: none; }
+  .top-apply-flow-list { grid-template-columns: repeat(2,1fr) !important; gap: 24px 16px; }
 }
 
 /* ② CTAボタン微調整 */
