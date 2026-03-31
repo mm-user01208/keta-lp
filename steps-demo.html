@@ -13,7 +13,7 @@ body{font-family:'Noto Sans JP',sans-serif;background:#eee;color:#333}
 .section-steps h2{text-align:center;font-size:1.3rem;font-weight:700;color:#333;margin-bottom:48px;letter-spacing:.04em}
 
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;position:relative;padding-top:28px}
-.steps-grid::before{content:'';position:absolute;top:28px;left:calc(12.5%);right:calc(12.5%);height:2px;background:#dc003b;z-index:5}
+.steps-grid::before{content:'';position:absolute;top:28px;left:calc(12.5%);right:calc(12.5%);height:2px;background:#dc003b;z-index:0}
 
 .step-col{
   display:flex;flex-direction:column;align-items:center;text-align:center;
@@ -53,9 +53,9 @@ body{font-family:'Noto Sans JP',sans-serif;background:#eee;color:#333}
 
 <div class="step-col">
   <div class="step-num">1</div>
-  <div class="step-icon"><svg viewBox="0 0 48 48" stroke="#c9ad00"><rect x="6" y="10" width="36" height="28" rx="2"/><rect x="10" y="6" width="28" height="4" rx="1"/><line x1="12" y1="18" x2="36" y2="18"/><rect x="12" y="22" width="24" height="12" rx="1"/></svg></div>
+  <div class="step-icon"><svg viewBox="0 0 48 48" stroke="#c9ad00"><rect x="8" y="6" width="32" height="24" rx="2"/><line x1="8" y1="26" x2="40" y2="26"/><path d="M4 38h40"/><line x1="18" y1="30" x2="18" y2="38"/><line x1="30" y1="30" x2="30" y2="38"/><line x1="16" y1="16" x2="32" y2="16"/><line x1="16" y1="20" x2="28" y2="20"/></svg></div>
   <div class="step-title">申請書記入</div>
-  <div class="step-desc">免責事項と利用規約に同意し、K-ETAオンライン申請書に必要事項を入力してください。K-ETAは年齢を問わず取得が必要です。</div>
+  <div class="step-desc">免責事項と利用規約に同意し、<a href="https://keta-travel.com/form/entry" style="color:#134aa9;text-decoration:underline">K-ETAオンライン申請書</a>に必要事項を入力してください。K-ETAは年齢を問わず取得が必要です。</div>
 </div>
 
 <div class="step-col">
@@ -76,7 +76,7 @@ body{font-family:'Noto Sans JP',sans-serif;background:#eee;color:#333}
   <div class="step-num">4</div>
   <div class="step-icon"><svg viewBox="0 0 48 48" stroke="#ed8906"><path d="M6 10h36a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/><polyline points="4,10 24,26 44,10"/></svg></div>
   <div class="step-title">結果通知</div>
-  <div class="step-desc">審査結果をメールで通知します。渡航前にK-ETA申請状況確認で申請内容に誤りがないかご確認ください。なお、K-ETAは韓国の電子入国申告のひとつです。</div>
+  <div class="step-desc">審査結果をメールで通知します。渡航前に<a href="https://keta-travel.com/form/status" style="color:#134aa9;text-decoration:underline">K-ETA申請状況確認</a>で申請内容に誤りがないかご確認ください。なお、K-ETAは韓国の電子入国申告のひとつです。</div>
 </div>
 
 </div>
