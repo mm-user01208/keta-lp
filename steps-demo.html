@@ -8,40 +8,24 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans JP',sans-serif;background:#f5f5f5;color:#333}
-
 .section-steps{padding:80px 24px;max-width:960px;margin:0 auto}
 .section-steps h2{text-align:center;font-size:1.4rem;font-weight:700;color:#333;margin-bottom:48px;letter-spacing:.04em}
-
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;position:relative}
 .steps-grid::before{content:'';position:absolute;top:28px;left:calc(12.5% + 4px);right:calc(12.5% + 4px);height:2px;background:#dc003b;z-index:0}
-
 .step-col{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;cursor:default}
-
 .step-num{
-  width:56px;height:56px;border-radius:50%;
-  background:#dc003b;color:#fff;
+  width:56px;height:56px;border-radius:50%;background:#dc003b;color:#fff;
   display:flex;align-items:center;justify-content:center;
   font-size:1.3rem;font-weight:900;
-  box-shadow:0 3px 10px rgba(220,0,59,.2);
-  border:3px solid #fff;flex-shrink:0;
-  margin-bottom:10px;
-  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 3px 10px rgba(220,0,59,.2);border:3px solid #fff;flex-shrink:0;
+  margin-bottom:10px;transition:transform .2s,box-shadow .2s;
 }
 .step-col:hover .step-num{transform:scale(1.1);box-shadow:0 4px 14px rgba(220,0,59,.35)}
-
-.step-icon{
-  width:64px;height:64px;
-  display:flex;align-items:center;justify-content:center;
-  margin:8px 0 12px;flex-shrink:0;
-  transition:transform .2s;
-}
+.step-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;margin:8px 0 12px;flex-shrink:0;transition:transform .2s}
 .step-col:hover .step-icon{transform:scale(1.08)}
-.step-icon svg{width:48px;height:48px;fill:#555;stroke:none}
-
+.step-icon svg{width:48px;height:48px;fill:none;stroke:#555;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .step-title{font-size:17px;font-weight:700;color:#333;margin-bottom:8px;line-height:1.4;flex-shrink:0}
-
 .step-desc{font-size:13px;color:#666;line-height:1.4;min-height:37px;max-height:37px;overflow:hidden}
-
 @media(max-width:768px){
   .section-steps{padding:48px 16px}
   .steps-grid{grid-template-columns:repeat(2,1fr);gap:32px 24px}
@@ -51,35 +35,34 @@ body{font-family:'Noto Sans JP',sans-serif;background:#f5f5f5;color:#333}
 </style>
 </head>
 <body>
-
 <div class="section-steps">
 <h2>K-ETAの申請手順</h2>
 <div class="steps-grid">
 
 <div class="step-col">
   <div class="step-num">1</div>
-  <div class="step-icon"><svg viewBox="0 0 48 48"><path d="M10 4h20l10 10v28c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm18 0v10h10M16 20h16M16 27h16M16 34h8"/></svg></div>
+  <div class="step-icon"><svg viewBox="0 0 48 48"><path d="M10 4h18l12 12v26a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M28 4v12h12"/><line x1="16" y1="22" x2="32" y2="22"/><line x1="16" y1="28" x2="32" y2="28"/><line x1="16" y1="34" x2="24" y2="34"/></svg></div>
   <div class="step-title">申請書の記入</div>
   <div class="step-desc">規約に同意のうえ申請書に必要事項を入力</div>
 </div>
 
 <div class="step-col">
   <div class="step-num">2</div>
-  <div class="step-icon"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="28" rx="3"/><rect x="4" y="10" width="40" height="10"/><rect x="8" y="30" width="14" height="4" rx="1"/></svg></div>
+  <div class="step-icon"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="28" rx="3"/><line x1="4" y1="20" x2="44" y2="20"/><rect x="8" y="30" width="14" height="3" rx="1"/><circle cx="38" cy="31.5" r="2"/></svg></div>
   <div class="step-title">料金のお支払い</div>
   <div class="step-desc">内容を確認しカード情報を入力して決済</div>
 </div>
 
 <div class="step-col">
   <div class="step-num">3</div>
-  <div class="step-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><path d="M24 12v12l8 5"/><circle cx="24" cy="24" r="2"/></svg></div>
+  <div class="step-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><polyline points="24,12 24,24 33,29"/><circle cx="24" cy="24" r="1.5" fill="#555"/></svg></div>
   <div class="step-title">申請の審査</div>
   <div class="step-desc">受付通知を送信後、最長72時間で審査完了</div>
 </div>
 
 <div class="step-col">
   <div class="step-num">4</div>
-  <div class="step-icon"><svg viewBox="0 0 48 48"><path d="M6 10h36c1.1 0 2 .9 2 2v24c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V12c0-1.1.9-2 2-2z"/><path d="M4 10l20 16 20-16"/></svg></div>
+  <div class="step-icon"><svg viewBox="0 0 48 48"><path d="M6 10h36a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/><polyline points="4,10 24,26 44,10"/></svg></div>
   <div class="step-title">結果の通知</div>
   <div class="step-desc">メールで審査結果を通知。渡航前にご確認を</div>
 </div>
