@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ニュースセクション 3パターン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans JP',sans-serif;background:#f0f0f0;color:#333;padding:20px}
+h1{text-align:center;font-size:1.1rem;margin:16px 0 32px;color:#333}
+.pattern-wrap{background:#fff;border-radius:12px;padding:32px 24px;margin-bottom:40px;position:relative}
+.ptag{position:absolute;top:12px;left:12px;background:#dc003b;color:#fff;font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:16px}
+.pattern-wrap>h2{text-align:center;font-size:1.1rem;font-weight:700;margin-bottom:24px;color:#333}
+
+/* ========== ① シンプルカード型 ========== */
+.news-a .card{background:#fafafa;border:1px solid #eee;border-radius:8px;padding:20px;margin-bottom:16px}
+.news-a .card:last-child{margin-bottom:0}
+.news-a .card .date{font-size:11px;color:#999;margin-bottom:4px}
+.news-a .card h3{font-size:15px;font-weight:700;line-height:1.5;margin-bottom:8px;color:#333}
+.news-a .card h3 a{color:#333;text-decoration:none}
+.news-a .card .tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.news-a .card .tag{font-size:10px;color:#888;background:#f0f0f0;padding:2px 8px;border-radius:10px}
+.news-a .card .excerpt{font-size:13px;color:#666;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-a .card .more{margin-top:10px;font-size:12px}
+.news-a .card .more a{color:#dc003b;text-decoration:none;font-weight:500}
+
+/* ========== ② 強弱型 ========== */
+.news-b .card-main{background:#fff7ec;border-radius:8px;padding:24px;margin-bottom:20px;border-left:3px solid #dc003b}
+.news-b .card-main .date{font-size:11px;color:#999;margin-bottom:4px}
+.news-b .card-main h3{font-size:17px;font-weight:700;line-height:1.5;margin-bottom:8px;color:#333}
+.news-b .card-main h3 a{color:#333;text-decoration:none}
+.news-b .card-main .tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.news-b .card-main .tag{font-size:10px;color:#888;background:#fff;padding:2px 8px;border-radius:10px}
+.news-b .card-main .excerpt{font-size:14px;color:#555;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.news-b .card-main .more{margin-top:12px;font-size:13px}
+.news-b .card-main .more a{color:#dc003b;text-decoration:none;font-weight:500}
+
+.news-b .card-sub{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0}
+.news-b .card-sub:last-child{border-bottom:none}
+.news-b .card-sub .date-col{flex-shrink:0;font-size:11px;color:#999;width:70px;padding-top:2px}
+.news-b .card-sub .content{flex:1}
+.news-b .card-sub h3{font-size:14px;font-weight:500;line-height:1.5;color:#333}
+.news-b .card-sub h3 a{color:#333;text-decoration:none}
+.news-b .card-sub .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.news-b .card-sub .tag{font-size:10px;color:#888;background:#f5f5f5;padding:2px 8px;border-radius:10px}
+
+/* ========== ③ コンパクト一覧型 ========== */
+.news-c .row{display:flex;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid #f0f0f0}
+.news-c .row:last-child{border-bottom:none}
+.news-c .row .date{flex-shrink:0;font-size:11px;color:#999;width:80px}
+.news-c .row .tags-inline{flex-shrink:0;width:60px}
+.news-c .row .tags-inline .tag{font-size:10px;color:#fff;background:#dc003b;padding:1px 6px;border-radius:3px}
+.news-c .row h3{flex:1;font-size:14px;font-weight:500;line-height:1.4;color:#333}
+.news-c .row h3 a{color:#333;text-decoration:none}
+.news-c .row h3 a:hover{color:#dc003b}
+
+@media(max-width:768px){
+  body{padding:12px}
+  .pattern-wrap{padding:20px 16px}
+  .news-b .card-sub{flex-direction:column;gap:4px}
+  .news-b .card-sub .date-col{width:auto}
+  .news-c .row{flex-wrap:wrap}
+  .news-c .row .date{width:auto}
+  .news-c .row .tags-inline{width:auto}
+  .news-c .row h3{flex:0 0 100%;margin-top:4px}
+}
+</style>
+</head>
+<body>
+
+<h1>K-ETAニュースセクション — デザイン3パターン</h1>
+
+<!-- ① シンプルカード型 -->
+<div class="pattern-wrap">
+<span class="ptag">① シンプルカード</span>
+<h2>K-ETAと韓国渡航の最新情報</h2>
+<div class="news-a">
+
+<div class="card">
+<div class="date">2026年2月20日</div>
+<h3><a href="#">韓国の大手航空会社、機内でのモバイルバッテリー使用を全面禁止 1月26日より実施予定</a></h3>
+<div class="tags"><span class="tag">チェジュ航空</span><span class="tag">大韓航空</span><span class="tag">渡航情報</span></div>
+<div class="excerpt">韓国の各航空会社では、リチウム電池を内蔵したモバイルバッテリーの使用および持ち込みに関する安全規制が相次いで強化されています。</div>
+<div class="more"><a href="#">詳しくはこちら →</a></div>
+</div>
+
+<div class="card">
+<div class="date">2026年2月17日</div>
+<h3><a href="#">韓国のLCC ジンエアーが4月2日より釜山-宮古島線を新規就航</a></h3>
+<div class="tags"><span class="tag">ジンエアー</span><span class="tag">渡航情報</span></div>
+<div class="excerpt">韓国のLCC(格安航空会社)ジンエアーが、「釜山(プサン)-宮古島線」の新規就航を発表。2026年4月2日より運航開始予定です。</div>
+<div class="more"><a href="#">詳しくはこちら →</a></div>
+</div>
+
+<div class="card">
+<div class="date">2026年2月13日</div>
+<h3><a href="#">韓国、在外同胞・訪問就労ビザをF-4に統合 就労制限の緩和へ</a></h3>
+<div class="tags"><span class="tag">ビザ</span><span class="tag">韓国</span></div>
+<div class="excerpt">韓国政府は在外同胞ビザ(F-4)と訪問就労ビザ(H-2)を統合し、就労制限の緩和・在留資格による差別解消を進めます。</div>
+<div class="more"><a href="#">詳しくはこちら →</a></div>
+</div>
+
+</div>
+</div>
+
+<!-- ② 強弱型 -->
+<div class="pattern-wrap">
+<span class="ptag">② 強弱型</span>
+<h2>K-ETAと韓国渡航の最新情報</h2>
+<div class="news-b">
+
+<div class="card-main">
+<div class="date">2026年2月20日</div>
+<h3><a href="#">韓国の大手航空会社、機内でのモバイルバッテリー使用を全面禁止 1月26日より実施予定</a></h3>
+<div class="tags"><span class="tag">チェジュ航空</span><span class="tag">大韓航空</span><span class="tag">渡航情報</span></div>
+<div class="excerpt">韓国の各航空会社では、リチウム電池を内蔵したモバイルバッテリーの使用および持ち込みに関する安全規制が相次いで強化されています。チェジュ航空は2026年1月22日より全便において機内でのモバイルバッテリー使用を全面的に禁止。</div>
+<div class="more"><a href="#">詳しくはこちら →</a></div>
+</div>
+
+<div class="card-sub">
+<div class="date-col">2月17日</div>
+<div class="content">
+<h3><a href="#">韓国のLCC ジンエアーが4月2日より釜山-宮古島線を新規就航</a></h3>
+<div class="tags"><span class="tag">ジンエアー</span><span class="tag">渡航情報</span></div>
+</div>
+</div>
+
+<div class="card-sub">
+<div class="date-col">2月13日</div>
+<div class="content">
+<h3><a href="#">韓国、在外同胞・訪問就労ビザをF-4に統合 就労制限の緩和へ</a></h3>
+<div class="tags"><span class="tag">ビザ</span><span class="tag">韓国</span></div>
+</div>
+</div>
+
+<div class="card-sub">
+<div class="date-col">1月27日</div>
+<div class="content">
+<h3><a href="#">韓国、外国人旅行者向け付加価値税の即時還付制度を拡大</a></h3>
+<div class="tags"><span class="tag">観光</span><span class="tag">韓国</span></div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ③ コンパクト一覧型 -->
+<div class="pattern-wrap">
+<span class="ptag">③ コンパクト</span>
+<h2>K-ETAと韓国渡航の最新情報</h2>
+<div class="news-c">
+
+<div class="row">
+<div class="date">2026.02.20</div>
+<div class="tags-inline"><span class="tag">渡航</span></div>
+<h3><a href="#">韓国の大手航空会社、機内でのモバイルバッテリー使用を全面禁止</a></h3>
+</div>
+
+<div class="row">
+<div class="date">2026.02.17</div>
+<div class="tags-inline"><span class="tag">渡航</span></div>
+<h3><a href="#">韓国のLCC ジンエアーが4月2日より釜山-宮古島線を新規就航</a></h3>
+</div>
+
+<div class="row">
+<div class="date">2026.02.13</div>
+<div class="tags-inline"><span class="tag">ビザ</span></div>
+<h3><a href="#">韓国、在外同胞・訪問就労ビザをF-4に統合 就労制限の緩和へ</a></h3>
+</div>
+
+<div class="row">
+<div class="date">2026.01.27</div>
+<div class="tags-inline"><span class="tag">観光</span></div>
+<h3><a href="#">韓国、外国人旅行者向け付加価値税の即時還付制度を拡大</a></h3>
+</div>
+
+<div class="row">
+<div class="date">2026.01.16</div>
+<div class="tags-inline"><span class="tag">渡航</span></div>
+<h3><a href="#">韓国、済州島の観光目的ノービザ入国を30日から120日に延長</a></h3>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
