@@ -67,7 +67,7 @@ h2 { letter-spacing: 0.04em; }
 /* ① 申請手順 独立カード型 */
 .top-apply-flow { overflow: visible !important; }
 .top-apply-flow-list { display: grid !important; grid-template-columns: repeat(4,1fr); gap: 32px; overflow: visible !important; padding-top: 28px !important; position: relative !important; }
-.top-apply-flow-list::before { content:''; position:absolute; top:0px; left:calc(12.5%); right:calc(12.5%); height:2px; background:#dc003b; z-index:0; display:block !important; }
+.top-apply-flow-list::before { content:''; position:absolute; top:0px; left:calc(12.5%); right:calc(12.5%); height:2px; background:#dc003b; z-index:1; display:block !important; }
 .top-apply-flow-list::after { display: none !important; }
 .top-apply-flow-list figure { display: none !important; }
 .top-apply-flow-list-item {
@@ -76,7 +76,7 @@ h2 { letter-spacing: 0.04em; }
   padding: 40px 16px 20px !important; box-shadow: 0 4px 12px rgba(0,0,0,.08) !important;
   border: none !important; margin: 0 !important;
   transition: box-shadow .2s, transform .2s; transform-origin: center center;
-  overflow: visible !important; position: relative !important;
+  overflow: visible !important; position: relative !important; z-index: 0 !important;
 }
 .top-apply-flow-list-item:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12) !important; transform: scale(1.03); }
 .top-apply-flow-list-item h3 {
@@ -89,7 +89,7 @@ h2 { letter-spacing: 0.04em; }
   font-weight: 900;
   position: absolute !important; top: -28px; left: 50%; transform: translateX(-50%);
   box-shadow: 0 4px 10px rgba(0,0,0,.15); border: 3px solid #fff;
-  padding: 0 !important; z-index: 2;
+  padding: 0 !important; z-index: 3;
   font-size: unset !important;
 }
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-icon {
