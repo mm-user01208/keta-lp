@@ -74,10 +74,10 @@ h2 { letter-spacing: 0.04em; }
   display: flex !important; flex-direction: column; align-items: center; text-align: center;
   z-index: 1; background: #f7f7f7 !important; border-radius: 8px !important;
   padding: 0 16px 20px !important; box-shadow: 0 2px 8px rgba(0,0,0,.05) !important;
-  border: none !important; margin: 0 !important; transition: box-shadow .2s;
+  border: none !important; margin: 0 !important; transition: box-shadow .2s, transform .2s; transform-origin: center center;
   overflow: visible !important;
 }
-.top-apply-flow-list-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08) !important; transform: none; }
+.top-apply-flow-list-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08) !important; transform: scale(1.03); }
 .top-apply-flow-list-item h3 {
   display: flex !important; flex-direction: column; align-items: center;
   background: transparent !important; padding: 0 !important; width: 100%;
@@ -88,16 +88,14 @@ h2 { letter-spacing: 0.04em; }
   font-size: 1.3rem; font-weight: 900; margin-top: -28px; margin-bottom: 8px;
   box-shadow: 0 3px 10px rgba(220,0,59,.2); border: 3px solid #fff;
   padding: 0 !important; line-height: 56px;
-  transition: transform .2s, box-shadow .2s; transform-origin: center center;
+  
 }
-.top-apply-flow-list-item:hover h3 .top-apply-flow-list-item-header {
-  transform: scale(1.1); transform-origin: center center; box-shadow: 0 4px 14px rgba(220,0,59,.35);
-}
+
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-icon {
   width: 52px !important; height: 52px !important; margin: 4px 0 10px;
-  display: block !important; transition: transform .2s; transform-origin: center center;
+  display: block !important;
 }
-.top-apply-flow-list-item:hover h3 .top-apply-flow-list-item-icon { transform: scale(1.08); transform-origin: center center; }
+
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-title {
   font-size: 17px !important; font-weight: 700; color: #333; letter-spacing: 0.03em; margin-bottom: 6px;
 }
