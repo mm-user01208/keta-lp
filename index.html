@@ -64,20 +64,28 @@ body { font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino
 .top-overview .inner p, .content_text, .faq-text.answer div, .top-block p, .list-payment li { line-height: 1.9; letter-spacing: 0.02em; }
 h2 { letter-spacing: 0.04em; }
 
-/* ① 申請手順 STEP強調 */
-.top-apply-flow-list-item { border-radius: 10px; }
+/* ① 申請手順 プログレスバー型 */
+.top-apply-flow-list { position: relative; display: flex; justify-content: space-between; flex-wrap: nowrap; }
+.top-apply-flow-list::before { content:''; position:absolute; top:28px; left:calc(12.5%); right:calc(12.5%); height:3px; background:#dde5ed; z-index:0; }
+.top-apply-flow-list::after { content:''; position:absolute; top:28px; left:calc(12.5%); width:75%; height:3px; background:linear-gradient(90deg,#dc003b,#dc003b); z-index:1; border-radius:2px; }
+.top-apply-flow-list figure { display: none !important; }
+.top-apply-flow-list-item { text-align: center; flex: 1; position: relative; z-index: 2; border: none !important; box-shadow: none !important; background: transparent !important; padding: 0 8px !important; }
+.top-apply-flow-list-item h3 { display: flex; flex-direction: column; align-items: center; background: transparent !important; padding: 0 !important; }
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-header { 
-  border-radius: 10px 10px 0 0; 
-  font-size: 13px; 
-  font-weight: 700; 
-  letter-spacing: 0.08em;
+  width: 56px; height: 56px; border-radius: 50%; background: #dc003b !important; color: #fff; 
+  display: inline-flex; align-items: center; justify-content: center; 
+  font-size: 1.1rem; font-weight: 900; margin-bottom: 10px; 
+  box-shadow: 0 3px 10px rgba(220,0,59,.25); border: 3px solid #fff;
+  padding: 0 !important; line-height: 56px;
 }
-.top-apply-flow-list-item h3 .top-apply-flow-list-item-title {
-  font-weight: 700;
-  letter-spacing: 0.03em;
+.top-apply-flow-list-item h3 .top-apply-flow-list-item-icon { font-size: 2.4rem !important; margin-bottom: 6px; display: block !important; color: #dc003b; width: auto !important; height: auto !important; }
+.top-apply-flow-list-item h3 .top-apply-flow-list-item-title { font-size: 1.2rem !important; font-weight: 700; color: #333; letter-spacing: 0.03em; }
+.top-apply-flow-list-item p { font-size: 13px; line-height: 1.7; color: #666; margin-top: 6px; }
+@media(max-width:768px) {
+  .top-apply-flow-list { flex-wrap: wrap; gap: 20px 0; }
+  .top-apply-flow-list::before, .top-apply-flow-list::after { display: none; }
+  .top-apply-flow-list-item { flex: 0 0 50%; }
 }
-.top-apply-flow-list-item p { font-size: 13px; line-height: 1.7; }
-.top-apply-flow figure i { opacity: 0.5; }
 
 /* ② CTAボタン微調整 */
 .btn-apply { 
@@ -110,6 +118,7 @@ h2 { letter-spacing: 0.04em; }
 .top-contents .inner section { margin-bottom: 48px; }
 footer .common-nav section { border-radius: 0; }
 footer .common-nav section p { padding: 14px 16px; }
+.last-update { margin-bottom: 40px !important; }
 </style>
 </head>
 <body class="wp-singular page-template page-template-page-top page-template-page-top-php page page-id-9441 wp-theme-keta">
@@ -446,7 +455,7 @@ FAQ
 <main>
 <div class="kv">
 <picture class="kv-bg">
-<source media="(max-width: 768px)" data-srcset="https://keta-travel.com/wp-content/themes/keta/images/sp-kv.webp">
+<source media="(max-width: 768px)" srcset="https://keta-travel.com/wp-content/themes/keta/images/sp-kv.webp" data-srcset="https://keta-travel.com/wp-content/themes/keta/images/sp-kv.webp">
 <img data-src="https://keta-travel.com/wp-content/themes/keta/images/kv.webp"
 alt="韓国旅行の際はK-ETA申請を忘れずに"
 width="1200" height="800"
@@ -544,8 +553,8 @@ K-ETAの申請手順
 <h2>K-ETA申請とは</h2>
 <div class="top_1_text">
 <picture class="float-left">
-<source  width="272" height="272" data-srcset="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.webp">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjAAAAIwAQAAAACwimzCAAAAAnRSTlMAAHaTzTgAAAA9SURBVHja7cGBAAAAAMOg+VOf4AZVAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAN5tQAAHtUWQKAAAAAElFTkSuQmCC" width="272" height="272" alt="K-ETAとは" data-src="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.jpg" decoding="async" class="lazyload" data-eio-rwidth="560" data-eio-rheight="560">
+<source  width="272" height="272" srcset="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.webp" data-srcset="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.webp">
+<img src="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.jpg" width="272" height="272" alt="K-ETAとは" data-src="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.jpg" decoding="async" class="lazyload" data-eio-rwidth="560" data-eio-rheight="560">
 </picture><noscript><img src="https://keta-travel.com/wp-content/themes/keta/images/top_about_keta.jpg" width="272" height="272" alt="K-ETAとは" data-eio="l"></noscript>
 <div class="content_text content-1">
 <a href="/service/index.html">K-ETAとは</a>、短期の韓国渡航に必須となる電子渡航認証です。これまで短期訪問ビザの取得免除国・地域の市民はパスポートのみで韓国への入国が可能でしたが、2021年9月よりK-ETAの事前申請が必須となりました。正式名称は“Korea Electronic Travel Authorization”で、“ケーイーティーエー”や“ケーイータ”と呼ばれます。K-ETAは電子入国カード(e-Arrival Card)とは異なる、オンライン申請の電子渡航認証です。<br>
@@ -559,8 +568,8 @@ K-ETAの申請手順
 <h2>K-ETA申請の注意点</h2>
 <div class="top_2_text">
 <picture class="float-right">
-<source  width="272" height="272" data-srcset="https://keta-travel.com/wp-content/themes/keta/images/top_attention.webp">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjAAAAIwAQAAAACwimzCAAAAAnRSTlMAAHaTzTgAAAA9SURBVHja7cGBAAAAAMOg+VOf4AZVAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAN5tQAAHtUWQKAAAAAElFTkSuQmCC" width="272" height="272" alt="K-ETA申請の注意点" data-src="https://keta-travel.com/wp-content/themes/keta/images/top_attention.jpg" decoding="async" class="lazyload" data-eio-rwidth="560" data-eio-rheight="560">
+<source  width="272" height="272" srcset="https://keta-travel.com/wp-content/themes/keta/images/top_attention.webp" data-srcset="https://keta-travel.com/wp-content/themes/keta/images/top_attention.webp">
+<img src="https://keta-travel.com/wp-content/themes/keta/images/top_attention.jpg" width="272" height="272" alt="K-ETA申請の注意点" data-src="https://keta-travel.com/wp-content/themes/keta/images/top_attention.jpg" decoding="async" class="lazyload" data-eio-rwidth="560" data-eio-rheight="560">
 </picture><noscript><img src="https://keta-travel.com/wp-content/themes/keta/images/top_attention.jpg" width="272" height="272" alt="K-ETA申請の注意点" data-eio="l"></noscript>
 <div class="content_text content-2">
 電子渡航認証K-ETAはビザと比べ手続きが簡易で、パソコンやスマートフォン、タブレットを使用してオンラインで電子申請が可能です。申請後は韓国法務部にて審査が行われ、72時間以内を目安に「渡航認証許可」「条件付き渡航認証許可」「<a href="https://keta-travel.com/refusal/index.html">渡航認証拒否</a>」のいずれかが通知されます。K-ETAは取得してから3年間(2023年7月3日以前に申請した方は2年間)有効です。ただし、3年以内にパスポートの有効期限が切れる場合は、同日にK-ETAも失効するため再申請が求められます。審査で「渡航認証拒否」となった方も再申請が可能ですが、申請回数には制限が設けられています。180日間で3回以上の渡航認証を拒否された場合は、最初の結果通知日から180日間にわたり再申請が認められません。K-ETAの再申請に関する詳細は、「<a href="https://keta-travel.com/reapplication/index.html">K-ETAの有効期限と更新・再申請について</a>」より確認できます。<br>
@@ -958,11 +967,11 @@ K-ETAはビザを取得せず韓国へ渡航する方を対象とした電子渡
 </h3>
 <a href="https://keta-travel.com/service/index.html">
 <picture>
-<source type="image/webp" media="(min-width: 768px)"  data-srcset="/wp-content/uploads/2022/11/PC-4.webp">
-<source type="image/webp" media="(max-width: 767px)"  data-srcset="/wp-content/uploads/2022/11/SP-4.webp">
-<source media="(min-width: 768px)"  data-srcset="/wp-content/uploads/2022/11/PC-1.jpg">
-<source media="(max-width: 767px)"  data-srcset="/wp-content/uploads/2022/11/SP-1.jpg">
-<img loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeQAAAEOAQAAAABwClmwAAAAAnRSTlMAAHaTzTgAAAAnSURBVHja7cEBDQAAAMKg909tDwcUAAAAAAAAAAAAAAAAAAAAwL8BQWQAAcebNR8AAAAASUVORK5CYII=" alt="韓国電子渡航認証K-ETAとは" width="242" height="135" data-src="/wp-content/uploads/2022/11/PC-1.jpg" decoding="async" class="lazyload" data-eio-rwidth="484" data-eio-rheight="270">
+<source type="image/webp" media="(min-width: 768px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-4.webp" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-4.webp">
+<source type="image/webp" media="(max-width: 767px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-4.webp" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-4.webp">
+<source media="(min-width: 768px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-1.jpg" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-1.jpg">
+<source media="(max-width: 767px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-1.jpg" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-1.jpg">
+<img loading="lazy" src="https://keta-travel.com/wp-content/uploads/2022/11/PC-1.jpg" alt="韓国電子渡航認証K-ETAとは" width="242" height="135" data-src="https://keta-travel.com/wp-content/uploads/2022/11/PC-1.jpg" decoding="async" class="lazyload" data-eio-rwidth="484" data-eio-rheight="270">
 </picture><noscript><img loading="lazy" src="/wp-content/uploads/2022/11/PC-1.jpg" alt="韓国電子渡航認証K-ETAとは" width="242" height="135" data-eio="l"></noscript>
 </a>
 <div>
@@ -977,11 +986,11 @@ K-ETAは、ビザを取得せずに短期的な商用や観光目的で韓国を
 </h3>
 <a href="https://keta-travel.com/country/index.html">
 <picture>
-<source type="image/webp" media="(min-width: 768px)"  data-srcset="/wp-content/uploads/2022/11/PC-1-1.webp">
-<source type="image/webp" media="(max-width: 767px)"  data-srcset="/wp-content/uploads/2022/11/SP-1-1.webp">
-<source media="(min-width: 768px)"  data-srcset="/wp-content/uploads/2022/11/PC-2.jpg">
-<source media="(max-width: 767px)"  data-srcset="/wp-content/uploads/2022/11/SP-2.jpg">
-<img loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeQAAAEOAQAAAABwClmwAAAAAnRSTlMAAHaTzTgAAAAnSURBVHja7cEBDQAAAMKg909tDwcUAAAAAAAAAAAAAAAAAAAAwL8BQWQAAcebNR8AAAAASUVORK5CYII=" alt="K-ETAの申請対象国" width="242" height="135" data-src="/wp-content/uploads/2022/11/PC-2.jpg" decoding="async" class="lazyload" data-eio-rwidth="484" data-eio-rheight="270">
+<source type="image/webp" media="(min-width: 768px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-1-1.webp" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-1-1.webp">
+<source type="image/webp" media="(max-width: 767px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-1-1.webp" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-1-1.webp">
+<source media="(min-width: 768px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-2.jpg" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-2.jpg">
+<source media="(max-width: 767px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-2.jpg" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-2.jpg">
+<img loading="lazy" src="https://keta-travel.com/wp-content/uploads/2022/11/PC-2.jpg" alt="K-ETAの申請対象国" width="242" height="135" data-src="https://keta-travel.com/wp-content/uploads/2022/11/PC-2.jpg" decoding="async" class="lazyload" data-eio-rwidth="484" data-eio-rheight="270">
 </picture><noscript><img loading="lazy" src="/wp-content/uploads/2022/11/PC-2.jpg" alt="K-ETAの申請対象国" width="242" height="135" data-eio="l"></noscript>
 </a>
 <div>
@@ -996,11 +1005,11 @@ K-ETAは、ビザを取得せずに短期的な商用や観光目的で韓国を
 </h3>
 <a href="https://keta-travel.com/reapplication/index.html">
 <picture>
-<source type="image/webp" media="(min-width: 768px)"  data-srcset="/wp-content/uploads/2022/11/PC-2.webp">
-<source type="image/webp" media="(max-width: 767px)"  data-srcset="/wp-content/uploads/2022/11/SP-2.webp">
-<source media="(min-width: 768px)"  data-srcset="/wp-content/uploads/2022/11/PC-3.jpg">
-<source media="(max-width: 767px)"  data-srcset="/wp-content/uploads/2022/11/SP-3.jpg">
-<img loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeQAAAEOAQAAAABwClmwAAAAAnRSTlMAAHaTzTgAAAAnSURBVHja7cEBDQAAAMKg909tDwcUAAAAAAAAAAAAAAAAAAAAwL8BQWQAAcebNR8AAAAASUVORK5CYII=" alt="K-ETAの有効期限と更新・再申請" width="242" height="135" data-src="/wp-content/uploads/2022/11/PC-3.jpg" decoding="async" class="lazyload" data-eio-rwidth="484" data-eio-rheight="270">
+<source type="image/webp" media="(min-width: 768px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-2.webp" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-2.webp">
+<source type="image/webp" media="(max-width: 767px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-2.webp" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-2.webp">
+<source media="(min-width: 768px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-3.jpg" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-3.jpg">
+<source media="(max-width: 767px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-3.jpg" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-3.jpg">
+<img loading="lazy" src="https://keta-travel.com/wp-content/uploads/2022/11/PC-3.jpg" alt="K-ETAの有効期限と更新・再申請" width="242" height="135" data-src="https://keta-travel.com/wp-content/uploads/2022/11/PC-3.jpg" decoding="async" class="lazyload" data-eio-rwidth="484" data-eio-rheight="270">
 </picture><noscript><img loading="lazy" src="/wp-content/uploads/2022/11/PC-3.jpg" alt="K-ETAの有効期限と更新・再申請" width="242" height="135" data-eio="l"></noscript>
 </a>
 <div>
@@ -1015,11 +1024,11 @@ K-ETAの有効期限は取得日から3年間(2023年7月3日以前に申請し�
 </h3>
 <a href="https://keta-travel.com/q-code/index.html">
 <picture>
-<source type="image/webp" media="(min-width: 768px)"  data-srcset="/wp-content/uploads/2022/11/PC-1.webp">
-<source type="image/webp" media="(max-width: 767px)"  data-srcset="/wp-content/uploads/2022/11/SP-1.webp">
-<source media="(min-width: 768px)"  data-srcset="/wp-content/uploads/2022/11/PC.png">
-<source media="(max-width: 767px)"  data-srcset="/wp-content/uploads/2022/11/SP.png">
-<img loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeQAAAEOAQAAAABwClmwAAAAAnRSTlMAAHaTzTgAAAAnSURBVHja7cEBDQAAAMKg909tDwcUAAAAAAAAAAAAAAAAAAAAwL8BQWQAAcebNR8AAAAASUVORK5CYII=" alt="韓国Q-CODEの登録方法" width="242" height="135" data-src="/wp-content/uploads/2022/11/PC.png" decoding="async" class="lazyload" data-eio-rwidth="484" data-eio-rheight="270">
+<source type="image/webp" media="(min-width: 768px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-1.webp" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC-1.webp">
+<source type="image/webp" media="(max-width: 767px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-1.webp" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP-1.webp">
+<source media="(min-width: 768px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC.png" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/PC.png">
+<source media="(max-width: 767px)"  srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP.png" data-srcset="https://keta-travel.com/wp-content/uploads/2022/11/SP.png">
+<img loading="lazy" src="https://keta-travel.com/wp-content/uploads/2022/11/PC.png" alt="韓国Q-CODEの登録方法" width="242" height="135" data-src="https://keta-travel.com/wp-content/uploads/2022/11/PC.png" decoding="async" class="lazyload" data-eio-rwidth="484" data-eio-rheight="270">
 </picture><noscript><img loading="lazy" src="/wp-content/uploads/2022/11/PC.png" alt="韓国Q-CODEの登録方法" width="242" height="135" data-eio="l"></noscript>
 </a>
 <div>
