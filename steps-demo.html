@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STEP UIパターン比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans JP',sans-serif;background:#f5f5f5;color:#333;padding:20px}
+h1{text-align:center;margin:20px 0 40px;font-size:1.4rem;color:#00508C}
+.pattern{background:#fff;border-radius:12px;padding:32px 24px;margin-bottom:40px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.pattern-label{font-size:.85rem;font-weight:700;color:#fff;background:#00508C;display:inline-block;padding:4px 14px;border-radius:20px;margin-bottom:20px}
+.pattern h2{font-size:1.2rem;color:#333;margin-bottom:24px;text-align:center}
+
+/* ===== Pattern A: iVisa風 横プログレスバー ===== */
+.steps-a{display:flex;justify-content:space-between;position:relative;max-width:800px;margin:0 auto;padding:0 20px}
+.steps-a::before{content:'';position:absolute;top:28px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:3px;background:#dde5ed;z-index:0}
+.steps-a::after{content:'';position:absolute;top:28px;left:calc(12.5% + 20px);width:75%;height:3px;background:linear-gradient(90deg,#00508C,#c41e24);z-index:1;border-radius:2px}
+.step-a{text-align:center;flex:1;position:relative;z-index:2}
+.step-a .num{width:56px;height:56px;border-radius:50%;background:#00508C;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;margin-bottom:12px;box-shadow:0 3px 10px rgba(0,80,140,.25);border:3px solid #fff}
+.step-a .icon{font-size:1.6rem;margin-bottom:6px;display:block}
+.step-a h3{font-size:.9rem;font-weight:700;color:#00508C;margin-bottom:4px}
+.step-a p{font-size:.75rem;color:#888;line-height:1.4}
+
+/* ===== Pattern B: JAL ABC風 カード+番号バッジ ===== */
+.steps-b{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:800px;margin:0 auto}
+.step-b{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:24px 16px 20px;text-align:center;position:relative;transition:box-shadow .2s}
+.step-b:hover{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.step-b .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#c41e24;color:#fff;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.1em}
+.step-b .icon{font-size:2rem;margin:12px 0 8px;display:block}
+.step-b h3{font-size:.9rem;font-weight:700;color:#333;margin-bottom:4px}
+.step-b p{font-size:.75rem;color:#888;line-height:1.4}
+
+/* ===== Pattern C: ImmiAssist風 アイコン重視 縦ライン ===== */
+.steps-c{max-width:600px;margin:0 auto}
+.step-c{display:flex;align-items:flex-start;gap:20px;padding:20px 0;position:relative}
+.step-c:not(:last-child)::after{content:'';position:absolute;left:27px;top:64px;bottom:0;width:2px;background:#dde5ed}
+.step-c .left{flex-shrink:0;text-align:center}
+.step-c .num{width:56px;height:56px;border-radius:50%;background:#00508C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;position:relative;z-index:1;box-shadow:0 2px 8px rgba(0,80,140,.2)}
+.step-c .right h3{font-size:1rem;font-weight:700;color:#00508C;margin-bottom:4px}
+.step-c .right p{font-size:.85rem;color:#666;line-height:1.6}
+
+/* ===== Pattern D: ena風 シンプル番号+テキスト ===== */
+.steps-d{max-width:700px;margin:0 auto}
+.step-d{display:flex;align-items:center;gap:20px;padding:20px 24px;border-bottom:1px solid #eee;transition:background .2s}
+.step-d:last-child{border-bottom:none}
+.step-d:hover{background:#f8fafc}
+.step-d .num{width:40px;height:40px;border-radius:8px;background:#00508C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:900;flex-shrink:0}
+.step-d .icon{font-size:1.4rem;flex-shrink:0}
+.step-d .text h3{font-size:.95rem;font-weight:700;color:#333}
+.step-d .text p{font-size:.8rem;color:#888;margin-top:2px}
+
+/* ===== SP ===== */
+@media(max-width:768px){
+  body{padding:12px}
+  .pattern{padding:20px 14px}
+  .steps-a{flex-wrap:wrap;gap:16px}
+  .steps-a::before,.steps-a::after{display:none}
+  .step-a{flex:0 0 48%}
+  .steps-b{grid-template-columns:repeat(2,1fr)}
+  .step-c .num{width:44px;height:44px;font-size:.95rem}
+  .step-c .right h3{font-size:.9rem}
+}
+</style>
+</head>
+<body>
+
+<h1>K-ETA申請手順 — デザインパターン比較</h1>
+
+<!-- Pattern A -->
+<div class="pattern">
+<span class="pattern-label">A: プログレスバー型（iVisa参考）</span>
+<h2>K-ETAの申請手順</h2>
+<div class="steps-a">
+<div class="step-a"><div class="num">1</div><span class="icon">📝</span><h3>申請書記入</h3><p>パスポート情報を入力</p></div>
+<div class="step-a"><div class="num">2</div><span class="icon">💳</span><h3>お支払い</h3><p>クレジットカードで決済</p></div>
+<div class="step-a"><div class="num">3</div><span class="icon">🔍</span><h3>審査</h3><p>最長72時間で審査</p></div>
+<div class="step-a"><div class="num">4</div><span class="icon">✉️</span><h3>結果通知</h3><p>メールで結果をお届け</p></div>
+</div>
+</div>
+
+<!-- Pattern B -->
+<div class="pattern">
+<span class="pattern-label">B: カードバッジ型（JAL ABC参考）</span>
+<h2>K-ETAの申請手順</h2>
+<div class="steps-b">
+<div class="step-b"><span class="badge">STEP 1</span><span class="icon">📝</span><h3>申請書記入</h3><p>パスポート情報を入力</p></div>
+<div class="step-b"><span class="badge">STEP 2</span><span class="icon">💳</span><h3>お支払い</h3><p>クレジットカードで決済</p></div>
+<div class="step-b"><span class="badge">STEP 3</span><span class="icon">🔍</span><h3>審査</h3><p>最長72時間で審査</p></div>
+<div class="step-b"><span class="badge">STEP 4</span><span class="icon">✉️</span><h3>結果通知</h3><p>メールで結果をお届け</p></div>
+</div>
+</div>
+
+<!-- Pattern C -->
+<div class="pattern">
+<span class="pattern-label">C: 縦タイムライン型（ImmiAssist参考）</span>
+<h2>K-ETAの申請手順</h2>
+<div class="steps-c">
+<div class="step-c"><div class="left"><div class="num">1</div></div><div class="right"><h3>📝 申請書記入</h3><p>免責事項と利用規約に同意し、K-ETAオンライン申請書に必要事項を入力してください。</p></div></div>
+<div class="step-c"><div class="left"><div class="num">2</div></div><div class="right"><h3>💳 お支払い</h3><p>入力内容に間違いがないことを確認し、クレジットカード情報を入力してください。</p></div></div>
+<div class="step-c"><div class="left"><div class="num">3</div></div><div class="right"><h3>🔍 審査</h3><p>お支払い完了後に申請受付通知を送信します。審査には最長72時間を要します。</p></div></div>
+<div class="step-c"><div class="left"><div class="num">4</div></div><div class="right"><h3>✉️ 結果通知</h3><p>審査結果をメールで通知します。渡航前に申請状況確認で内容をご確認ください。</p></div></div>
+</div>
+</div>
+
+<!-- Pattern D -->
+<div class="pattern">
+<span class="pattern-label">D: リスト型（ena参考）</span>
+<h2>K-ETAの申請手順</h2>
+<div class="steps-d">
+<div class="step-d"><div class="num">1</div><span class="icon">📝</span><div class="text"><h3>申請書記入</h3><p>パスポート情報や渡航先情報を入力</p></div></div>
+<div class="step-d"><div class="num">2</div><span class="icon">💳</span><div class="text"><h3>お支払い</h3><p>クレジットカードで申請手数料を決済</p></div></div>
+<div class="step-d"><div class="num">3</div><span class="icon">🔍</span><div class="text"><h3>審査</h3><p>韓国法務部にて審査（最長72時間）</p></div></div>
+<div class="step-d"><div class="num">4</div><span class="icon">✉️</span><div class="text"><h3>結果通知</h3><p>メールで審査結果をお届け</p></div></div>
+</div>
+</div>
+
+</body>
+</html>
