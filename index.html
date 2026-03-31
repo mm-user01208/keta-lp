@@ -66,8 +66,9 @@ h2 { letter-spacing: 0.04em; }
 
 /* ① 申請手順 独立カード型 */
 .top-apply-flow { overflow: visible !important; }
-.top-apply-flow-list { display: grid !important; grid-template-columns: repeat(4,1fr); gap: 32px; overflow: visible !important; padding-top: 28px !important; }
-.top-apply-flow-list::before, .top-apply-flow-list::after { display: none !important; }
+.top-apply-flow-list { display: grid !important; grid-template-columns: repeat(4,1fr); gap: 32px; overflow: visible !important; padding-top: 28px !important; position: relative !important; }
+.top-apply-flow-list::before { content:''; position:absolute; top:28px; left:calc(12.5%); right:calc(12.5%); height:2px; background:#dc003b; z-index:0; display:block !important; }
+.top-apply-flow-list::after { display: none !important; }
 .top-apply-flow-list figure { display: none !important; }
 .top-apply-flow-list-item {
   display: flex !important; flex-direction: column; align-items: center; text-align: center;
@@ -85,10 +86,11 @@ h2 { letter-spacing: 0.04em; }
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-header {
   width: 56px; height: 56px; border-radius: 50%; background: #dc003b !important; color: #fff;
   display: inline-flex !important; align-items: center; justify-content: center;
-  font-size: 1.3rem; font-weight: 900;
+  font-weight: 900;
   position: absolute !important; top: -28px; left: 50%; transform: translateX(-50%);
   box-shadow: 0 4px 10px rgba(0,0,0,.15); border: 3px solid #fff;
-  padding: 0 !important; line-height: 56px; z-index: 2;
+  padding: 0 !important; z-index: 2;
+  font-size: unset !important;
 }
 .top-apply-flow-list-item h3 .top-apply-flow-list-item-icon {
   width: 52px !important; height: 52px !important; margin: 4px 0 10px;
@@ -100,6 +102,7 @@ h2 { letter-spacing: 0.04em; }
 .top-apply-flow-list-item p { font-size: 13px; line-height: 1.4; color: #666; margin-top: 0; }
 @media(max-width:768px) {
   .top-apply-flow-list { grid-template-columns: repeat(2,1fr) !important; gap: 32px 16px; }
+  .top-apply-flow-list::before { display: none !important; }
 }
 
 /* ② CTAボタン微調整 */
