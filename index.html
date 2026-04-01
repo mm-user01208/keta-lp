@@ -66,7 +66,7 @@ h2 { letter-spacing: 0.04em; }
 
 /* ① 申請手順 v5 */
 .keta-steps-v5 { background: #fff7ec; padding: 60px 24px; margin-bottom: 60px; overflow: visible; }
-.keta-steps-v5 h2 { text-align: center; font-size: 2rem; font-weight: 700; color: #333; margin-bottom: 48px; letter-spacing: .04em; }
+.keta-steps-v5 h2 { text-align: center; font-size: 2.2rem; font-weight: 700; color: #333; margin-bottom: 48px; letter-spacing: .04em; }
 .keta-steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; position: relative; padding-top: 28px; max-width: 1024px; margin: 0 auto; }
 .keta-steps-grid::before { content:''; position:absolute; top:70px; left:calc(12.5%); right:calc(12.5%); height:2px; background:#dc003b; z-index:0; }
 .keta-step-card {
@@ -110,7 +110,7 @@ h2 { letter-spacing: 0.04em; }
 /* Airport h2 - remove 電子渡航認証 */
 
 /* News cards */
-.archive-news-item {
+.archive-news-item-OLD-UNUSED {
   background: #fff; border-radius: 8px; padding: 20px 24px; margin-bottom: 16px;
   box-shadow: 0 2px 6px rgba(0,0,0,.05);
   transition: box-shadow .2s, transform .2s; transform-origin: center center;
@@ -132,11 +132,40 @@ h2 { letter-spacing: 0.04em; }
   .top-region-list-wrap ul li { font-size: 13px; line-height: 1.6; padding: 4px 0; }
 }
 
+
+/* News section - 強弱型 */
+.archive-news-item:first-child {
+  background: #fff7ec !important; border-left: 3px solid #dc003b; border-radius: 8px;
+  padding: 24px !important; margin-bottom: 20px;
+}
+.archive-news-item:first-child h3 { font-size: 17px !important; }
+.archive-news-item:first-child .archive-news-excerpt {
+  font-size: 14px !important; color: #555; -webkit-line-clamp: 3;
+}
+
+.archive-news-item:not(:first-child) {
+  background: transparent !important; box-shadow: none !important; border-radius: 0 !important;
+  padding: 16px 0 !important; margin-bottom: 0 !important;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
+}
+.archive-news-item:not(:first-child):hover { transform: none !important; }
+.archive-news-item:not(:first-child) .news-date { flex-shrink: 0; width: 70px; font-size: 11px !important; color: #999; order: 1; }
+.archive-news-item:not(:first-child) h3 { flex: 1; font-size: 14px !important; font-weight: 500; order: 2; min-width: 200px; }
+.archive-news-item:not(:first-child) .news-tags { order: 3; margin-top: 0; }
+.archive-news-item:not(:first-child) .archive-news-excerpt { display: none !important; }
+.archive-news-item:not(:first-child) .news-more { display: none !important; }
+
+@media(max-width:768px) {
+  .archive-news-item:not(:first-child) { flex-direction: column; gap: 4px; }
+  .archive-news-item:not(:first-child) .news-date { width: auto; }
+}
+
 /* ② CTAボタン微調整 */
 .btn-apply { 
   border-radius: 8px; 
   transition: transform 0.15s, box-shadow 0.15s; 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
 }
 .btn-apply:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 
