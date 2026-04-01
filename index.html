@@ -161,6 +161,43 @@ h2 { letter-spacing: 0.04em; }
   .archive-news-item:not(:first-child) .news-date { width: auto; }
 }
 
+
+/* News ② 強弱型 */
+.news-emphasis { max-width: 100%; }
+.news-main-card {
+  background: #fff7ec; border-left: 3px solid #dc003b; border-radius: 8px;
+  padding: 24px; margin-bottom: 24px;
+}
+.news-main-date { font-size: 12px; color: #999; margin-bottom: 6px; }
+.news-main-card h3 { font-size: 17px; font-weight: 700; line-height: 1.5; margin-bottom: 10px; }
+.news-main-card h3 a { color: #333; text-decoration: none; }
+.news-main-card h3 a:hover { color: #dc003b; }
+.news-main-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.nm-tag { font-size: 11px; color: #888; background: #fff; padding: 2px 8px; border-radius: 10px; }
+.news-main-excerpt { font-size: 14px; color: #555; line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.news-main-more { margin-top: 12px; }
+.news-main-more a { color: #dc003b; font-size: 13px; font-weight: 500; text-decoration: none; }
+
+.news-sub-list { border-top: 1px solid #f0f0f0; }
+.news-sub-row { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid #f0f0f0; }
+.news-sub-row:last-child { border-bottom: none; }
+.news-sub-date { flex-shrink: 0; width: 90px; font-size: 12px; color: #999; padding-top: 2px; }
+.news-sub-content { flex: 1; }
+.news-sub-content h3 { font-size: 14px; font-weight: 500; line-height: 1.5; margin-bottom: 4px; }
+.news-sub-content h3 a { color: #333; text-decoration: none; }
+.news-sub-content h3 a:hover { color: #dc003b; }
+.news-sub-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.ns-tag { font-size: 10px; color: #dc003b; background: #fef2f2; padding: 2px 8px; border-radius: 10px; }
+
+.news-archive-link { text-align: right; margin-top: 16px; }
+.news-archive-link a { color: #dc003b; font-size: 13px; font-weight: 500; text-decoration: none; }
+
+@media(max-width:768px) {
+  .news-main-card { padding: 16px; }
+  .news-sub-row { flex-direction: column; gap: 4px; }
+  .news-sub-date { width: auto; }
+}
+
 /* ② CTAボタン微調整 */
 .btn-apply { 
   border-radius: 8px; 
