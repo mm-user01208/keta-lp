@@ -70,10 +70,10 @@ h2 { letter-spacing: 0.04em; }
 .keta-steps-v5 h2 { text-align: center; font-size: 2.2rem; font-weight: 700; color: #333; margin-bottom: 48px; letter-spacing: .04em; }
 .keta-steps-v5-badge { display: none; }
 .keta-steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; position: relative; padding-top: 28px; max-width: 1024px; margin: 0 auto; }
-.keta-steps-grid::before { content:''; position:absolute; top:70px; left:calc(12.5%); right:calc(12.5%); height:2px; background:#dc003b; z-index:0; }
+.keta-steps-grid::before { display:none; }
 .keta-step-card {
   display: flex; flex-direction: column; align-items: center; text-align: center;
-  background: #fff; border-radius: 8px; padding: 44px 16px 20px;
+  background: #fff; border-radius: 8px; padding: 58px 16px 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,.08);
   position: relative; z-index: 1;
   transition: box-shadow .2s, transform .2s; transform-origin: center center;
@@ -87,7 +87,7 @@ h2 { letter-spacing: 0.04em; }
   font-size: 1.1rem; font-weight: 900; letter-spacing: 1px;
   padding: 4px 16px; border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,.15); border: 3px solid #fff;
-  position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 10;
+  position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10;
   white-space: nowrap;
 }
 .keta-step-icon { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; margin: 0 0 10px; }
