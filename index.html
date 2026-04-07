@@ -73,19 +73,21 @@ h2 { letter-spacing: 0.04em; }
 .keta-steps-grid::before { content:''; position:absolute; top:70px; left:calc(12.5%); right:calc(12.5%); height:2px; background:#dc003b; z-index:0; }
 .keta-step-card {
   display: flex; flex-direction: column; align-items: center; text-align: center;
-  background: #fff; border-radius: 8px; padding: 40px 16px 20px;
+  background: #fff; border-radius: 8px; padding: 44px 16px 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,.08);
   position: relative; z-index: 1;
   transition: box-shadow .2s, transform .2s; transform-origin: center center;
 }
 .keta-step-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: scale(1.03); }
-/* STEP X ラベル（旧：赤丸数字） */
+/* アクセントライン */
+.keta-step-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:#dc003b; border-radius:8px 8px 0 0; }
+/* STEP X ラベル */
 .keta-step-num {
   background: #dc003b; color: #fff;
   font-size: 1.1rem; font-weight: 900; letter-spacing: 1px;
   padding: 4px 16px; border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,.15); border: 3px solid #fff;
-  position: absolute; top: -20px; left: 50%; transform: translateX(-50%); z-index: 10;
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 10;
   white-space: nowrap;
 }
 .keta-step-icon { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; margin: 0 0 10px; }
