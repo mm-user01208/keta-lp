@@ -65,35 +65,42 @@ body { font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino
 .top-overview .inner p, .content_text, .faq-text.answer div, .top-block p, .list-payment li { line-height: 1.9; letter-spacing: 0.02em; }
 h2 { letter-spacing: 0.04em; }
 
-/* ① 申請手順 v5 */
-.keta-steps-v5 { background: #fff7ec; padding: 60px 24px; margin-bottom: 60px; overflow: visible; }
-.keta-steps-v5 h2 { text-align: center; font-size: 2.2rem; font-weight: 700; color: #333; margin-bottom: 48px; letter-spacing: .04em; }
-.keta-steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; position: relative; padding-top: 28px; max-width: 1024px; margin: 0 auto; }
-.keta-steps-grid::before { content:''; position:absolute; top:70px; left:calc(12.5%); right:calc(12.5%); height:2px; background:#dc003b; z-index:0; }
+/* ① 申請手順 v6 — Pattern E × 公式サイト融合 */
+.keta-steps-v5 { background: #f4f6fb; padding: 60px 24px 56px; margin-bottom: 60px; overflow: visible; }
+.keta-steps-v5 h2 { text-align: center; font-size: 2.2rem; font-weight: 800; color: #001a4d; margin-bottom: 40px; letter-spacing: .04em; }
+.keta-steps-v5 h2::before, .keta-steps-v5 h2::after { display: none !important; }
+.keta-steps-v5-badge { display: block; text-align: center; margin-bottom: 12px; }
+.keta-steps-v5-badge span { display: inline-block; background: #003087; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 3px; padding: 4px 18px; border-radius: 20px; }
+.keta-steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; position: relative; max-width: 1024px; margin: 0 auto; }
 .keta-step-card {
   display: flex; flex-direction: column; align-items: center; text-align: center;
-  background: #fff; border-radius: 8px; padding: 40px 16px 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
-  position: relative; z-index: 1;
+  background: #fff; border-radius: 18px; padding: 28px 16px 24px;
+  box-shadow: 0 4px 16px rgba(0,47,135,.08);
+  border: 1.5px solid #e8edf8;
+  position: relative; overflow: hidden; z-index: 1;
   transition: box-shadow .2s, transform .2s; transform-origin: center center;
 }
-.keta-step-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); transform: scale(1.03); }
+.keta-step-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, #003087, #1a56db); border-radius: 18px 18px 0 0; }
+.keta-step-card:hover { box-shadow: 0 8px 24px rgba(0,47,135,.14); transform: translateY(-3px); }
+/* 背景の大きな数字 */
+.keta-step-card::after { content: attr(data-num); position:absolute; top:-10px; left:50%; transform:translateX(-50%); font-size:100px; font-weight:900; color:#003087; opacity:.05; line-height:1; pointer-events:none; z-index:0; }
+/* STEPバッジ */
 .keta-step-num {
-  width: 64px; height: 64px; border-radius: 50%; background: #dc003b; color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2rem; font-weight: 900;
-  box-shadow: 0 4px 10px rgba(0,0,0,.15); border: 3px solid #fff;
-  position: absolute; top: -32px; left: 50%; transform: translateX(-50%); z-index: 10;
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #eef2fc; border: 1px solid #c8d4f5; border-radius: 20px;
+  padding: 3px 12px; font-size: 11px; font-weight: 700; color: #003087; letter-spacing: 1px;
+  margin-bottom: 14px; position: relative; z-index: 1;
 }
-.keta-step-icon { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; margin: 0 0 10px; }
-.keta-step-icon svg { width: 52px; height: 52px; }
-.keta-step-title { font-size: 17px; font-weight: 700; color: #333; margin-bottom: 8px; line-height: 1.4; }
-.keta-step-desc { font-size: 13px; color: #666; line-height: 1.6; }
-.keta-step-desc a { color: #134aa9; text-decoration: underline; }
+.keta-step-num::before { content:''; width:6px; height:6px; background:#003087; border-radius:50%; display:inline-block; }
+/* アイコン円背景 */
+.keta-step-icon { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; margin: 0 0 14px; background: linear-gradient(135deg, #eef2fc, #dce6ff); border: 2px solid #c8d4f5; border-radius: 50%; position: relative; z-index:1; }
+.keta-step-icon svg { width: 36px; height: 36px; }
+.keta-step-title { font-size: 15px; font-weight: 800; color: #001a4d; margin-bottom: 8px; line-height: 1.4; position: relative; z-index:1; }
+.keta-step-desc { font-size: 13px; color: #6b7a99; line-height: 1.7; position: relative; z-index:1; }
+.keta-step-desc a { color: #003087; text-decoration: underline; }
 @media(max-width:768px) {
   .keta-steps-v5 { padding: 48px 16px; }
-  .keta-steps-grid { grid-template-columns: repeat(2,1fr); gap: 32px 16px; }
-  .keta-steps-grid::before { display: none; }
+  .keta-steps-grid { grid-template-columns: repeat(2,1fr); gap: 28px 14px; }
 }
 
 
@@ -596,33 +603,34 @@ K-ETA(Korea Electronic Travel Authorization)はビザ(査証)を取得せずに�
 </div>
 </section>
 <section class="keta-steps-v5">
+<div class="keta-steps-v5-badge"><span>HOW TO APPLY</span></div>
 <h2>K-ETAの申請手順</h2>
 <div class="keta-steps-grid">
 
-<div class="keta-step-card">
-  <div class="keta-step-num">1</div>
-  <div class="keta-step-icon"><svg viewBox="0 0 48 48" stroke="#c9ad00" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="32" height="24" rx="2"/><line x1="8" y1="26" x2="40" y2="26"/><path d="M4 38h40"/><line x1="18" y1="30" x2="18" y2="38"/><line x1="30" y1="30" x2="30" y2="38"/><line x1="16" y1="16" x2="32" y2="16"/><line x1="16" y1="20" x2="28" y2="20"/></svg></div>
+<div class="keta-step-card" data-num="1">
+  <div class="keta-step-num">STEP 1</div>
+  <div class="keta-step-icon"><svg viewBox="0 0 48 48" stroke="#003087" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="32" height="24" rx="2"/><line x1="8" y1="26" x2="40" y2="26"/><path d="M4 38h40"/><line x1="18" y1="30" x2="18" y2="38"/><line x1="30" y1="30" x2="30" y2="38"/><line x1="16" y1="16" x2="32" y2="16"/><line x1="16" y1="20" x2="28" y2="20"/></svg></div>
   <div class="keta-step-title">申請書記入</div>
   <div class="keta-step-desc">免責事項と利用規約に同意し、<a href="https://keta-travel.com/form/entry">K-ETAオンライン申請書</a>に必要事項を入力してください。K-ETAは年齢を問わず申請が可能です。</div>
 </div>
 
-<div class="keta-step-card">
-  <div class="keta-step-num">2</div>
-  <div class="keta-step-icon"><svg viewBox="0 0 48 48" stroke="#134aa9" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="40" height="28" rx="3"/><line x1="4" y1="20" x2="44" y2="20"/><rect x="8" y="30" width="14" height="3" rx="1"/><circle cx="38" cy="31.5" r="2"/></svg></div>
+<div class="keta-step-card" data-num="2">
+  <div class="keta-step-num">STEP 2</div>
+  <div class="keta-step-icon"><svg viewBox="0 0 48 48" stroke="#003087" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="40" height="28" rx="3"/><line x1="4" y1="20" x2="44" y2="20"/><rect x="8" y="30" width="14" height="3" rx="1"/><circle cx="38" cy="31.5" r="2"/></svg></div>
   <div class="keta-step-title">お支払い</div>
   <div class="keta-step-desc">申請書の入力内容に間違いがないことを確認したあと、お支払いページに遷移します。クレジットカード情報を入力してください。</div>
 </div>
 
-<div class="keta-step-card">
-  <div class="keta-step-num">3</div>
-  <div class="keta-step-icon"><svg viewBox="0 0 48 48" stroke="#dc003b" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"/><polyline points="24,12 24,24 33,29"/><circle cx="24" cy="24" r="1.5" fill="#dc003b"/></svg></div>
+<div class="keta-step-card" data-num="3">
+  <div class="keta-step-num">STEP 3</div>
+  <div class="keta-step-icon"><svg viewBox="0 0 48 48" stroke="#003087" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"/><polyline points="24,12 24,24 33,29"/><circle cx="24" cy="24" r="1.5" fill="#003087"/></svg></div>
   <div class="keta-step-title">審査</div>
   <div class="keta-step-desc">お支払い完了後に「申請受付通知」を送信します。審査には最長72時間を要しますので、結果が通知されるまでお待ちください。</div>
 </div>
 
-<div class="keta-step-card">
-  <div class="keta-step-num">4</div>
-  <div class="keta-step-icon"><svg viewBox="0 0 48 48" stroke="#ed8906" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h36a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/><polyline points="4,10 24,26 44,10"/></svg></div>
+<div class="keta-step-card" data-num="4">
+  <div class="keta-step-num">STEP 4</div>
+  <div class="keta-step-icon"><svg viewBox="0 0 48 48" stroke="#003087" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h36a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/><polyline points="4,10 24,26 44,10"/></svg></div>
   <div class="keta-step-title">結果通知</div>
   <div class="keta-step-desc">審査結果をメールで通知します。渡航前に<a href="https://keta-travel.com/form/status">K-ETA申請状況確認</a>で申請内容に誤りがないかご確認ください。なお、K-ETAは韓国の電子入国申告のひとつです。</div>
 </div>
